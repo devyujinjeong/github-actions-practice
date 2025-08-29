@@ -26,14 +26,22 @@ public class CalculatorController {
             @RequestParam String operation,
             Model model
     ) {
-        double result = switch (operation) {
-            case "add" -> num1 + num2;
-            case "subtract" -> num1 - num2;
-            case "multiply" -> num1 * num2;
-            case "divide" -> (double) num1 / num2;
-            default -> 0;
-        };
+        double result = 0;
 
+        switch (operation) {
+            case "add" -> result = num1 + num2;
+            case "subtract" -> result = num1 - num2;
+            case "multiply" -> result = num1 * num2;
+            case "divide" -> {
+                if (num2 == 0) {
+                    model.addAttribute("error", "0으로 나눌 수 없습니다!");
+                    return "calculator";
+                }
+                result = (double) num1 / num2;
+            }
+            default -> result = 0;
+        }
+        
         model.addAttribute("num1", num1);
         model.addAttribute("num2", num2);
         model.addAttribute("operation", operation);
