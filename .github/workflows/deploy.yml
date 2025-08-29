@@ -27,6 +27,9 @@ jobs:
           java-version: '17'
           distribution: 'zulu'
 
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
       - name: Install envsubst
         # 환경 변수 변환을 위해 설치 (템플릿안의 ${변수명}을 실제 환경 변수 값으로 바꿔주는 도구 포함)
         run: sudo apt-get install -y gettext
