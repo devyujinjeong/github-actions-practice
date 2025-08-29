@@ -26,7 +26,7 @@ public class CalculatorController {
             @RequestParam String operation,
             Model model
     ) {
-        double result = 0;
+        int result = 0;
 
         switch (operation) {
             case "add" -> result = num1 + num2;
@@ -37,9 +37,9 @@ public class CalculatorController {
                     model.addAttribute("error", "0으로 나눌 수 없습니다!");
                     return "calculator";
                 }
-                result = (double) num1 / num2;
+                result = num1 / num2;
             }
-            default -> result = 0;
+            case "remainder" -> result = num1 % num2;
         }
         
         model.addAttribute("num1", num1);
