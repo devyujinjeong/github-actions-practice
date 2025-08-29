@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: practice-github-actions
+
+server:
+  port: 10000

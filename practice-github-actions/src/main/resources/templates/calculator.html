@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>계산기</title>
+</head>
+<body>
+<h1>간단한 계산기</h1>
+<form action="/calculator/result" method="get">
+    <label>숫자 1: <input type="number" name="num1" required></label><br><br>
+    <label>숫자 2: <input type="number" name="num2" required></label><br><br>
+
+    <label>연산 선택:</label>
+    <label>
+        <select name="operation">
+            <option value="add">더하기</option>
+            <option value="subtract">빼기</option>
+            <option value="multiply">곱하기</option>
+            <option value="divide">나누기</option>
+        </select>
+    </label>
+    <br><br>
+
+    <button type="submit">계산하기</button>
+</form>
+
+<p th:if="${error}" th:text="${error}" style="color:red"></p>
+</body>
+</html>
